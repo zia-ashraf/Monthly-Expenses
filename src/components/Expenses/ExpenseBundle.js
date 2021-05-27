@@ -1,9 +1,22 @@
+import React, { useState } from "react";
 import ExpenseItem from "./ExpenseItem";
 import "./ExpenseBundle.css";
+import ExpenseFilter from "./ExpenseFilter";
 
 const ExpenseBundle = (props) => {
+  const [expenseFilterVal, setExpenseFilter] = useState("2019");
+
+  const expenseFilterHandler = (filterYear) => {
+    // console.log(filterYear);
+    console.log(expenseFilterVal);
+    setExpenseFilter(filterYear);
+  };
   return (
     <div className="expenses">
+      <ExpenseFilter
+        setExpenseFilter={expenseFilterHandler}
+        intial={expenseFilterVal}
+      />
       <ExpenseItem
         title={props.bundle[0].title}
         amount={props.bundle[0].amount}

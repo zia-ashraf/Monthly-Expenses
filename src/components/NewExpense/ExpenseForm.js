@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   //   const [enteredTitle, setEnteredTitle] = useState("");
   //   const [enteredDate, setEnteredDate] = useState("");
   //   const [enteredAmount, setEnteredAmount] = useState("");
@@ -14,9 +14,9 @@ const ExpenseForm = () => {
 
   const submissionHandler = (event) => {
     event.preventDefault();
-    const expenseData = userInput;
-    console.log(expenseData);
+    // const expenseData = userInput;
     setUserInput((prevState) => {
+      props.onSaveExpenseData(prevState);
       return {
         ...prevState,
         enteredDate: "", //remember '=' won't be used because this is key value pair.

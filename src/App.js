@@ -32,17 +32,10 @@ function App() {
   const [expenseValues, setExpenseValues] = useState(dummyExpenses);
   const addExpenseHandler = (expenseData) => {
     console.log(expenseData);
-    // setExpenseValues((preValues) => {
-    //   return [...preValues, expenseData];
-    // });
     setExpenseValues((preValue) => {
-      return [preValue, ...expenseValues];
+      return [expenseData, ...preValue];
     });
   };
-  // const newExpenseValue=(event)=>{
-  //   setExpenseValues(...expenses,event)
-
-  // };
 
   return (
     <div>

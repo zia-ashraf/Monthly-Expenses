@@ -7,6 +7,7 @@ function ExpenseItem(props) {
   // deconstruction used to store the intial val as 1st param and the changed value as 2nd param
 
   const [title, setTitle] = useState(props.title);
+  // console.log(props.date);
 
   const clickHandler = () => {
     setTitle("Updated");

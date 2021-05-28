@@ -5,7 +5,7 @@ import "./ExpenseFilter.css";
 const ExpenseFilter = (props) => {
   const valueSetter = (event) => {
     props.setExpenseFilter(event.target.value);
-    console.log(event.target.value);
+    // console.log(event.target.value);
   };
 
   return (

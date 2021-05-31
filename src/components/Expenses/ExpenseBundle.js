@@ -26,15 +26,18 @@ const ExpenseBundle = (props) => {
         initial={expenseFilterVal}
         setExpenseFilter={expenseFilterHandler}
       />
-
-      {filteredExpenses.map((item) => (
-        <ExpenseItem
-          key={item.id}
-          title={item.title}
-          amount={item.amount}
-          date={item.date}
-        />
-      ))}
+      {filteredExpenses.length === 0 ? (
+        <p>No item for this year</p>
+      ) : (
+        filteredExpenses.map((item) => (
+          <ExpenseItem
+            key={item.id}
+            title={item.title}
+            amount={item.amount}
+            date={item.date}
+          />
+        ))
+      )}
     </div>
   );
 };

@@ -8,7 +8,7 @@ const ExpenseForm = (props) => {
 
   const [userInput, setUserInput] = useState({
     title: "",
-    amount: "",
+    amount: 0,
     date: "",
   });
 
@@ -41,7 +41,7 @@ const ExpenseForm = (props) => {
     setUserInput((prevState) => {
       return {
         ...prevState,
-        date: event.target.value, //HERE
+        date: new Date(event.target.value), //HERE
       };
     });
     // console.log(date);
@@ -49,7 +49,7 @@ const ExpenseForm = (props) => {
   const AmountChangeHandler = (event) => {
     // setEnteredAmount(event.target.value);
     setUserInput((prevState) => {
-      return { ...prevState, amount: event.target.value };
+      return { ...prevState, amount: Number(event.target.value) };
     });
     // console.log(amount);
   };

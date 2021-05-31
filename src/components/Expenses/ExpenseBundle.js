@@ -26,6 +26,7 @@ const ExpenseBundle = (props) => {
         initial={expenseFilterVal}
         setExpenseFilter={expenseFilterHandler}
       />
+
       {filteredExpenses.map((item) => (
         <ExpenseItem
           key={item.id}

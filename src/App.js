@@ -36,7 +36,7 @@ function App() {
       return [expenseData, ...preValue];
     });
   };
-
+  console.log(expenseValues);
   return (
     <div>
       <NewExpense onSubmitExpense={addExpenseHandler} />

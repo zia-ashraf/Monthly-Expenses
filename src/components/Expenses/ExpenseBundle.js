@@ -4,23 +4,29 @@ import "./ExpenseBundle.css";
 import ExpenseFilter from "./ExpenseFilter";
 
 const ExpenseBundle = (props) => {
-  const [expenseFilterVal, setExpenseFilter] = useState("2019");
+  const [expenseFilterVal, setExpenseFilter] = useState("2021");
 
   const expenseFilterHandler = (filterYear) => {
-    // setExpenseFilter(filterYear);
-    // setExpenseFilter((filterYearchecker) => {
-    //   return filterYearchecker;
-    // });
     setExpenseFilter(filterYear);
+    setExpenseFilter((filterYearchecker) => {
+      return filterYearchecker;
+    });
   };
-  console.log(expenseFilterVal);
+  // console.log(expenseFilterVal);
+
+  const filteredExpenses = props.bundle.filter((item) => {
+    // console.log(item.date.getFullYear().toString());
+    return item.date.getFullYear().toString() === expenseFilterVal;
+  });
+  // console.log(filteredExpenses);
+
   return (
     <div className="expenses">
       <ExpenseFilter
         initial={expenseFilterVal}
         setExpenseFilter={expenseFilterHandler}
       />
-      {props.bundle.map((item) => (
+      {filteredExpenses.map((item) => (
         <ExpenseItem
           key={item.id}
           title={item.title}

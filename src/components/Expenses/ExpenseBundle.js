@@ -4,15 +4,16 @@ import "./ExpenseBundle.css";
 import ExpenseFilter from "./ExpenseFilter";
 
 const ExpenseBundle = (props) => {
-  const [expenseFilterVal, setExpenseFilter] = useState("2020");
+  const [expenseFilterVal, setExpenseFilter] = useState("2019");
 
   const expenseFilterHandler = (filterYear) => {
     // setExpenseFilter(filterYear);
-    setExpenseFilter((filterYear) => {
-      return filterYear;
-    });
-    console.log(expenseFilterVal);
+    // setExpenseFilter((filterYearchecker) => {
+    //   return filterYearchecker;
+    // });
+    setExpenseFilter(filterYear);
   };
+  console.log(expenseFilterVal);
   return (
     <div className="expenses">
       <ExpenseFilter

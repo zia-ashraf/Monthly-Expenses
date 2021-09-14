@@ -7,13 +7,13 @@ const dummyExpenses = [
   {
     id: "e1",
     title: "Paper Roll",
-    amount: 94.12,
+    amount: 4.12,
     date: new Date(2021, 1, 21),
   },
   {
     id: "e2",
     title: "A4 Sheets",
-    amount: 21.32,
+    amount: 1.32,
     date: new Date(2021, 2, 21),
   },
   {
@@ -25,7 +25,7 @@ const dummyExpenses = [
   {
     id: "e4",
     title: "Cardboard",
-    amount: 44.27,
+    amount: 4.27,
     date: new Date(2021, 1, 17),
   },
 ];

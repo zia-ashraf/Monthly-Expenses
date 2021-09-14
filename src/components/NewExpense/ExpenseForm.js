@@ -2,55 +2,67 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
-  //   const [title, setEnteredTitle] = useState("");
-  //   const [date, setEnteredDate] = useState("");
-  //   const [amount, setEnteredAmount] = useState("");
+  const [title, setEnteredTitle] = useState("");
+  const [date, setEnteredDate] = useState("");
+  const [amount, setEnteredAmount] = useState("");
 
-  const [userInput, setUserInput] = useState({
-    title: "",
-    amount: 0,
-    date: "",
-  });
+  // const [userInput, setUserInput] = useState({
+  //   title: "",
+  //   amount: 0,
+  //   date: "",
+  // });
 
   const submissionHandler = (event) => {
     event.preventDefault();
     // const expenseData = userInput;
-    setUserInput((prevState) => {
-      props.onSaveExpenseData(prevState);
-      return {
-        ...prevState,
-        date: "", //remember '=' won't be used because this is key value pair.
-        title: "",
-        amount: "",
-      };
-    });
+    // event.preventDefault();
+
+    const expenseData = {
+      title: title,
+      amount: amount,
+      date: new Date(date),
+    };
+
+    props.onSaveExpenseData(expenseData);
+    setEnteredTitle("");
+    setEnteredAmount("");
+    setEnteredDate("");
+    // setUserInput((prevState) => {
+    //   props.onSaveExpenseData(prevState);
+    //   return {
+    //     ...prevState,
+    //     date: "", //remember '=' won't be used because this is key value pair.
+    //     title: "",
+    //     amount: "",
+    //   };
+    // });
   };
 
   const titleChangeHandler = (event) => {
-    // setEnteredTitle(event.target.value);
+    setEnteredTitle(event.target.value);
 
-    setUserInput((prevState) => {
-      return {
-        ...prevState,
-        title: event.target.value,
-      };
-    });
+    // setUserInput((prevState) => {
+    //   return {
+    //     ...prevState,
+    //     title: event.target.value,
+    //   };
+    // });
   };
   const dateChangeHandler = (event) => {
-    // setEnteredDate(event.target.value);
-    setUserInput((prevState) => {
-      return {
-        ...prevState,
-        date: new Date(event.target.value), //HERE
-      };
-    });
-    // console.log(date);
+    // console.log(userInput.date);
+    setEnteredDate(event.target.value);
+    // setUserInput((prevState) => {
+    //   return {
+    //     ...prevState,
+    //     date: new Date(event.target.value), //HERE
+    //   };
+    // });
   };
   const AmountChangeHandler = (event) => {
-    // setEnteredAmount(event.target.value);
-    setUserInput((prevState) => {
-      return { ...prevState, amount: Number(event.target.value) };
-    });
+    setEnteredAmount(event.target.value);
+    // setUserInput((prevState) => {
+    //   return { ...prevState, amount: Number(event.target.value) };
+    // });
     // console.log(amount);
   };
   return (
@@ -60,7 +72,7 @@ const ExpenseForm = (props) => {
           <label>Title</label>
           <input
             onChange={titleChangeHandler}
-            value={userInput.title}
+            value={title}
             type="text"
             id="title"
             name="title"
@@ -71,7 +83,7 @@ const ExpenseForm = (props) => {
           <label>Amount</label>
           <input
             onChange={AmountChangeHandler}
-            value={userInput.amount}
+            value={amount}
             type="number"
             id="amount"
             min="0.1"
@@ -82,10 +94,10 @@ const ExpenseForm = (props) => {
           <label>Date</label>
           <input
             onChange={dateChangeHandler}
-            value={userInput.date}
+            value={date}
             type="date"
             min="2018-01-01"
-            max="2021-12-31"
+            max="2022-12-31"
           ></input>
         </div>
         <div className="new-expense__actions">

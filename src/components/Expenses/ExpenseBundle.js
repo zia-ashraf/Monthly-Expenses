@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ExpenseItem from "./ExpenseItem";
 import "./ExpenseBundle.css";
 import ExpenseFilter from "./ExpenseFilter";
+import ExpenseChart from "./ExpenseChart";
 
 const ExpenseBundle = (props) => {
   const [expenseFilterVal, setExpenseFilter] = useState("2021");
@@ -38,6 +39,7 @@ const ExpenseBundle = (props) => {
         initial={expenseFilterVal}
         setExpenseFilter={expenseFilterHandler}
       />
+      <ExpenseChart expenses={filteredExpenses} />
       {expenseContent}
     </div>
   );
